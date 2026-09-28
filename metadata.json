@@ -1,0 +1,7 @@
+{
+  "name": "CampaignCraft - AI Email Marketing Studio",
+  "description": "Generate complete email marketing campaigns with subject lines, body copy, and AI visuals using Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
