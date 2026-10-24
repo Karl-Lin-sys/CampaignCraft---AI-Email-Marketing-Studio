@@ -1,3 +1,4 @@
+import { localApiOnly } from './local-api-guard.mjs';
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -11,6 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+app.use('/api', localApiOnly(() => PORT));
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 app.use(express.json({ limit: '20mb' }));
@@ -750,7 +752,7 @@ async function startServer() {
     app.use(vite.middlewares);
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
+  app.listen(PORT, '127.0.0.1', () => {
     console.log(`CampaignCraft Server running at http://0.0.0.0:${PORT}`);
   });
 }
